@@ -1,4 +1,4 @@
-const phone = "2290167924076";
+const phone = "229O196132201";
 const loader = document.getElementById("loader");
 
 function showLoader() {
@@ -20,7 +20,7 @@ function closeLoginModal() {
 
 function validerLogin() {
   const pass = document.getElementById('admin-login-pass').value;
-  if (pass === "kouame") {
+  if (pass === "Gbedagba83") {
     window.location = "admin.html";
   } else {
     alert("Mot de passe incorrect");
