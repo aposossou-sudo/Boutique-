@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Administration</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+<div id="loader"><div class="bar"></div></div>
+
+<h2 style="text-align:center;margin-top:30px;">🔐 Administration</h2>
+
+<input type="password" id="password" placeholder="Mot de passe admin">
+
+<h3>Ajouter un produit</h3>
+<input id="nom" placeholder="Nom du produit">
+<input id="prix" placeholder="Prix">
+<input id="image" placeholder="URL de l'image">
+<button onclick="ajouterProduit()">Ajouter produit</button>
+
+<h3>Ajouter vidéo témoignage</h3>
+<input id="videoInput" placeholder="URL vidéo (moins de 10Mo)">
+<button onclick="ajouterVideo()">Ajouter vidéo</button>
+
+<h3>Produits existants</h3>
+<ul id="listeProduits"></ul>
+
+</body>
+</html>
