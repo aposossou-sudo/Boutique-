@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Boutique Premium</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+<meta charset="UTF-8">
+<title>Boutique Premium</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
 </head>
 <body>
 
-<div id="loader"><div class="bar"></div></div>
+<div id="loader">
+  <div class="loader-box">
+    <p>Chargement des informations...</p>
+    <div class="progress"></div>
+  </div>
+</div>
 
 <header>
-  <h1>🛍️ Boutique Premium</h1>
-  <a href="admin.html" class="admin-btn">⚙️ Paramètres</a>
+  <h1>🛍️ BOUTIQUE PREMIUM</h1>
+  <button class="admin-btn" onclick="demanderMotDePasse()">⚙️ PARAMÈTRES</button>
 </header>
 
 <section class="trust">
@@ -24,7 +29,7 @@
 <main id="produits"></main>
 
 <section id="temoignage">
-  <h2>❤️ Témoignage client</h2>
+  <h2>📹 Témoignage client</h2>
   <video id="video" controls></video>
 </section>
 
