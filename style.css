@@ -1,120 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-* {
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+* { box-sizing:border-box; font-family:'Poppins', sans-serif; }
 
 body {
-  margin: 0;
+  margin:0;
   background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  color: white;
+  color:white;
 }
 
 header {
-  padding: 20px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  backdrop-filter: blur(10px);
+  display:flex; justify-content:space-between; align-items:center;
+  padding:30px;
 }
+
+h1 { font-size:36px; }
 
 .admin-btn {
-  color: white;
-  text-decoration: none;
-  background: rgba(255,255,255,0.15);
-  padding: 10px 20px;
-  border-radius: 30px;
+  font-size:20px; padding:15px 30px; border-radius:40px;
+  border:none; background:#00ffd5; cursor:pointer;
+  transition:0.3s;
 }
 
+.admin-btn:hover { transform:scale(1.05); }
+
 .trust {
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  background: rgba(255,255,255,0.08);
+  display:flex; justify-content:space-around; padding:20px;
+  background: rgba(255,255,255,0.08); border-radius:20px;
 }
 
 #produits {
-  padding: 40px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap: 30px;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px; padding:40px;
 }
 
 .card {
-  background: rgba(255,255,255,0.12);
-  border-radius: 20px;
-  padding: 20px;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  animation: slideUp 0.6s forwards;
+  background: rgba(255,255,255,0.12); padding:25px; border-radius:20px;
+  backdrop-filter: blur(15px); animation:slideUp 0.6s forwards;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 15px;
+.card img { width:100%; border-radius:15px; transition:0.3s; }
+.card img:hover { transform:scale(1.05); }
+
+.card h3 { font-size:24px; margin:10px 0; }
+.card p { font-size:22px; color:#00ffd5; margin:10px 0; }
+
+.card button {
+  width:100%; padding:15px; border:none; border-radius:30px;
+  background: linear-gradient(135deg,#00ffd5,#00c6ff); font-weight:600;
+  cursor:pointer; transition:0.3s;
 }
+
+.card button:hover { transform:scale(1.05); }
 
 .badge {
-  background: linear-gradient(135deg,#ff512f,#f09819);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  display: inline-block;
-  margin-bottom: 10px;
+  display:inline-block; padding:6px 12px; border-radius:20px;
+  background: linear-gradient(135deg,#ff512f,#f09819); font-size:0.85rem;
+  margin-bottom:10px;
 }
 
-button {
-  width: 100%;
-  padding: 12px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(135deg,#00ffd5,#00c6ff);
-  font-weight: 600;
-  cursor: pointer;
-}
-
-input {
-  width: 90%;
-  margin: 10px auto;
-  padding: 12px;
-  border-radius: 30px;
-  border: none;
-  display: block;
-}
-
-#temoignage {
-  padding: 40px;
-  text-align: center;
-}
-
-video {
-  max-width: 90%;
-  border-radius: 20px;
-}
+#temoignage { text-align:center; padding:40px; }
+video { max-width:90%; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.4); }
 
 #loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  display: none;
-  z-index: 9999;
+  position:fixed; inset:0; background:#000000dd; display:none;
+  justify-content:center; align-items:center; z-index:9999;
 }
 
-#loader .bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg,#00ffd5,#00c6ff);
-  animation: loading 1s forwards;
-}
+.loader-box { width:80%; text-align:center; }
+.loader-box p { font-size:28px; margin-bottom:20px; }
+.progress { height:15px; background:linear-gradient(90deg,#00ffd5,#00c6ff);
+animation: loading 1.5s infinite; border-radius:10px; }
 
-@keyframes loading {
-  to { width: 100%; }
-}
-
-@keyframes slideUp {
-  from { opacity:0; transform:translateY(30px); }
-  to { opacity:1; transform:translateY(0); }
-}
+@keyframes loading { 0%{width:0%;} 100%{width:100%;} }
+@keyframes slideUp { from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
