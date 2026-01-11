@@ -2,35 +2,95 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Administration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | Boutique Premium</title>
 <link rel="stylesheet" href="style.css">
 <script defer src="script.js"></script>
 </head>
-<body>
+<body class="admin-body">
 
 <div id="loader">
   <div class="loader-box">
-    <p>Chargement...</p>
+    <p>Sécurisation de la session...</p>
     <div class="progress"></div>
   </div>
 </div>
 
-<h1>🔐 ADMINISTRATION</h1>
+<div class="admin-container">
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-logo">💎</span>
+            <h2>BOUTIQUE ADMIN</h2>
+        </div>
+        <nav>
+          <button onclick="showSection('section-produits')" class="nav-btn active">📦 Gérer les Produits</button>
+          <button onclick="showSection('section-video')" class="nav-btn">🎥 Témoignages Vidéos</button>
+        </nav>
+        <div class="sidebar-footer">
+            <button onclick="window.location='index.html'" class="nav-btn logout-btn">🏠 Retour Boutique</button>
+        </div>
+    </aside>
 
-<input type="password" id="password" placeholder="Mot de passe admin">
+    <main class="admin-content">
+        <!-- SECTION PRODUITS -->
+        <section id="section-produits" class="admin-section active">
+            <div class="card-admin">
+                <h2>➕ Nouveau Produit</h2>
+                <div class="form-grid">
+                  <input id="nom" placeholder="Nom du produit">
+                  <input id="prix" type="number" placeholder="Prix (FCFA)">
+                </div>
+                <div class="file-upload">
+                  <label for="imageFile">📸 Photo du produit</label>
+                  <input type="file" id="imageFile" accept="image/*">
+                </div>
+                <button onclick="ajouterProduit()" class="action-btn">✨ Enregistrer l'article</button>
+            </div>
 
-<h2>➕ Ajouter un produit</h2>
-<input id="nom" placeholder="Nom du produit">
-<input id="prix" type="number" placeholder="Prix en FCFA">
-<input type="file" id="imageFile" accept="image/*">
-<button onclick="ajouterProduit()">📸 Ajouter le produit</button>
+            <div class="card-admin">
+                <h2>🗑️ Inventaire Actuel</h2>
+                <ul id="listeProduits" class="item-list"></ul>
+            </div>
+        </section>
 
-<h2>🎥 Vidéo témoignage</h2>
-<input type="file" id="videoFile" accept="video/*">
-<button onclick="ajouterVideo()">🎬 Ajouter la vidéo</button>
+        <!-- SECTION VIDEO -->
+        <section id="section-video" class="admin-section">
+            <div class="card-admin">
+                <h2>🎥 Ajouter un Témoignage</h2>
+                <input id="videoTitre" placeholder="Titre ou Nom du client (ex: Marie - Abidjan)">
+                <div class="file-upload">
+                  <label for="videoFile">🎬 Fichier Vidéo</label>
+                  <input type="file" id="videoFile" accept="video/*">
+                </div>
+                <button onclick="ajouterVideo()" class="action-btn">🎬 Publier le témoignage</button>
+            </div>
 
-<h2>🗑️ Produits existants</h2>
-<ul id="listeProduits"></ul>
+            <div class="card-admin">
+                <h2>🗑️ Gérer les Vidéos</h2>
+                <ul id="listeVideosAdmin" class="item-list"></ul>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- MODALE MOT DE PASSE POUR ACTIONS -->
+<div id="password-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+          <span class="lock-icon-small">🔐</span>
+          <h3>Action Sécurisée</h3>
+        </div>
+        <p>Confirmation du mot de passe requise</p>
+        <div class="input-group">
+          <input type="password" id="admin-confirm-pass" placeholder="Mot de passe">
+          <div class="input-glow"></div>
+        </div>
+        <div class="modal-actions">
+            <button onclick="closeModal()" class="cancel-btn">Annuler</button>
+            <button id="modal-confirm-btn" class="confirm-btn">Valider</button>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

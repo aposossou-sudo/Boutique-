@@ -2,7 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Boutique Premium</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boutique Premium | Luxe & Élégance</title>
 <link rel="stylesheet" href="style.css">
 <script defer src="script.js"></script>
 </head>
@@ -10,28 +11,86 @@
 
 <div id="loader">
   <div class="loader-box">
-    <p>Chargement des informations...</p>
+    <p>Chargement de votre univers Luxe...</p>
     <div class="progress"></div>
   </div>
 </div>
 
 <header>
-  <h1>🛍️ BOUTIQUE PREMIUM</h1>
-  <button class="admin-btn" onclick="demanderMotDePasse()">⚙️ PARAMÈTRES</button>
+  <div class="logo">
+    <span class="logo-icon">💎</span>
+    <h1>PREMIUM</h1>
+  </div>
+  <button class="admin-btn" onclick="demanderMotDePasse()">⚙️ ADMINISTRATION</button>
 </header>
 
+<section class="hero">
+  <div class="hero-content">
+    <h2>L'excellence à votre portée</h2>
+    <p>Découvrez notre sélection exclusive de produits d'exception.</p>
+  </div>
+</section>
+
 <section class="trust">
-  <div>✅ +1200 clients satisfaits</div>
-  <div>🚚 Livraison rapide</div>
-  <div>🔒 Paiement sécurisé</div>
+  <div class="trust-item">
+    <span class="trust-icon">✅</span>
+    <p>+1200 Clients Comblés</p>
+  </div>
+  <div class="trust-item">
+    <span class="trust-icon">🚚</span>
+    <p>Livraison Express</p>
+  </div>
+  <div class="trust-item">
+    <span class="trust-icon">🔒</span>
+    <p>Paiement 100% Sécurisé</p>
+  </div>
+</section>
+
+<section class="catalog-header">
+  <h2>🛍️ NOTRE CATALOGUE</h2>
+  <p>Plus de 20 nouveautés chaque semaine</p>
 </section>
 
 <main id="produits"></main>
 
-<section id="temoignage">
-  <h2>📹 Témoignage client</h2>
-  <video id="video" controls></video>
+<section id="temoignages-section">
+  <div class="section-divider"></div>
+  <h2>📹 EXPÉRIENCES CLIENTS (VIDÉOS)</h2>
+  <p>Découvrez les retours en vidéo de nos clients satisfaits</p>
+  <div id="video-gallery" class="video-grid">
+    <!-- Les vidéos apparaîtront ici dès que vous les ajouterez dans les paramètres -->
+  </div>
 </section>
+
+<!-- MODALES -->
+<div id="login-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="lock-icon">🔐</span>
+      <h3>Accès Sécurisé</h3>
+    </div>
+    <p>Identifiez-vous pour gérer la boutique</p>
+    <div class="input-group">
+      <input type="password" id="admin-login-pass" placeholder="Mot de passe">
+      <div class="input-glow"></div>
+    </div>
+    <div class="modal-actions">
+      <button onclick="closeLoginModal()" class="cancel-btn">Annuler</button>
+      <button onclick="validerLogin()" class="confirm-btn">Se connecter</button>
+    </div>
+  </div>
+</div>
+
+<div id="video-modal" class="modal" onclick="if(event.target==this) closeVideoModal()">
+  <div class="modal-content video-modal-content">
+    <span class="close-video" onclick="closeVideoModal()">&times;</span>
+    <video id="main-video-player" controls autoplay></video>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Boutique Premium. Tous droits réservés.</p>
+</footer>
 
 </body>
 </html>

@@ -1,14 +1,15 @@
 const express = require("express");
 const app = express();
-const PORT = 10000;
+const PORT = 5000;
+const HOST = "0.0.0.0";
 
-app.use(express.json({ limit: "15mb" }));
+app.use(express.json({ limit: "50mb" }));
 app.use(express.static("."));
 
 const ADMIN_PASSWORD = "kouame";
 
 let produits = [];
-let videoTemoignage = "";
+let videos = [];
 
 app.get("/api/produits", (req, res) => {
   res.json(produits);
@@ -30,16 +31,37 @@ app.delete("/api/admin/produit/:id", (req, res) => {
   res.json({ success: true });
 });
 
+app.get("/api/videos", (req, res) => {
+  res.json(videos);
+});
+
 app.post("/api/admin/video", (req, res) => {
-  const { password, video } = req.body;
+  const { password, video, titre } = req.body;
   if (password !== ADMIN_PASSWORD) return res.status(401).json({ error: "Mot de passe incorrect" });
 
-  videoTemoignage = video;
+  videos.push({ id: Date.now(), video, titre: titre || "Témoignage client" });
   res.json({ success: true });
 });
 
-app.get("/api/video", (req, res) => {
-  res.json({ video: videoTemoignage });
+app.delete("/api/admin/video/:id", (req, res) => {
+  const { password } = req.body;
+  if (password !== ADMIN_PASSWORD) return res.status(401).json({ error: "Mot de passe incorrect" });
+
+  videos = videos.filter(v => v.id != req.params.id);
+  res.json({ success: true });
 });
 
-app.listen(PORT, () => console.log("Serveur lancé sur le port " + PORT));
+app.put("/api/admin/produit/:id", (req, res) => {
+  const { password, nom, prix } = req.body;
+  if (password !== ADMIN_PASSWORD) return res.status(401).json({ error: "Mot de passe incorrect" });
+  
+  const index = produits.findIndex(p => p.id == req.params.id);
+  if (index !== -1) {
+    produits[index] = { ...produits[index], nom, prix: Number(prix) };
+    res.json({ success: true });
+  } else {
+    res.status(404).json({ error: "Produit non trouvé" });
+  }
+});
+
+app.listen(PORT, HOST, () => console.log("Serveur lancé sur " + HOST + ":" + PORT));
