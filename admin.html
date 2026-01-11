@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Administration</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+<meta charset="UTF-8">
+<title>Administration</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
 </head>
 <body>
 
-<div id="loader"><div class="bar"></div></div>
+<div id="loader">
+  <div class="loader-box">
+    <p>Chargement...</p>
+    <div class="progress"></div>
+  </div>
+</div>
 
-<h2 style="text-align:center;margin-top:30px;">🔐 Administration</h2>
+<h1>🔐 ADMINISTRATION</h1>
 
 <input type="password" id="password" placeholder="Mot de passe admin">
 
-<h3>Ajouter un produit</h3>
+<h2>➕ Ajouter un produit</h2>
 <input id="nom" placeholder="Nom du produit">
-<input id="prix" placeholder="Prix">
-<input id="image" placeholder="URL de l'image">
-<button onclick="ajouterProduit()">Ajouter produit</button>
+<input id="prix" type="number" placeholder="Prix en FCFA">
+<input type="file" id="imageFile" accept="image/*">
+<button onclick="ajouterProduit()">📸 Ajouter le produit</button>
 
-<h3>Ajouter vidéo témoignage</h3>
-<input id="videoInput" placeholder="URL vidéo (moins de 10Mo)">
-<button onclick="ajouterVideo()">Ajouter vidéo</button>
+<h2>🎥 Vidéo témoignage</h2>
+<input type="file" id="videoFile" accept="video/*">
+<button onclick="ajouterVideo()">🎬 Ajouter la vidéo</button>
 
-<h3>Produits existants</h3>
+<h2>🗑️ Produits existants</h2>
 <ul id="listeProduits"></ul>
 
 </body>
